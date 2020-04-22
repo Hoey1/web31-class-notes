@@ -216,3 +216,55 @@ const otherAnimal = {
 };
 
 animal.call(myAnimal); //! Cow says Moo 🐮
+
+//todo - - - - STOP BREAKOUT - - - - -
+//todo - - - - STOP BREAKOUT - - - - -
+
+//? - - - -  New Binding - - - - -
+//*     using the 'new' keyword constructs a new object and 'this' points to it.
+//*     when a function is invoked as a constructor function using the 'new' keyword
+//*     'this' points to the new object thats created
+
+function Ghost(saying) {
+  //? proper syntax: capitalize 1st letter of constructor function
+  this.phrase = saying;
+}
+
+const myGhost = new Ghost("Casper the friendly 👻"); //? here we are creating a new object called <myGhost> and its a new Ghost.
+
+console.log(myGhost);
+
+console.log(myGhost.phase);
+
+//todo - - - - BREAKOUT - - - - - - - - - BREAKOUT - - - - -
+//todo - - - - BREAKOUT - - - - - - - - - BREAKOUT - - - - -
+//todo - - - - BREAKOUT - - - - - - - - - BREAKOUT - - - - -
+
+// Create a function of called food and pass in a parameter of favourite set this food to your parameter
+// Create a new object using the new keyword called myFavouriteFood and pass in the parameter of your favourite cuisine
+// Console log my favourite food is: and the result
+
+// function Food(fav) {
+//   this.food = fav;
+// }
+
+// myFavFood1 = new Food1('Yummy Donalds');
+
+// console.log(`My favorite food is ${myFavFood.food}');
+
+//// -----------------------------------------------
+//// --------------My Example Did Not Work Above----
+
+//* Brits Example
+
+function Food(favourite) {
+  this.food = favourite;
+}
+
+myFavFood = new Food("Yummy Donalds");
+
+console.log(`My favorite food is ${myFavFood.food}`);
+
+//todo - - - - STOP BREAKOUT - - - - - - - - - STOP BREAKOUT - - - - -
+//todo - - - - STOP BREAKOUT - - - - - - - - - STOP BREAKOUT - - - - -
+//todo - - - - STOP BREAKOUT - - - - - - - - - STOP BREAKOUT - - - - -

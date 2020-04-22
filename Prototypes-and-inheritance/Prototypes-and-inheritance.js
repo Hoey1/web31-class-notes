@@ -268,3 +268,159 @@ console.log(`My favorite food is ${myFavFood.food}`);
 //todo - - - - STOP BREAKOUT - - - - - - - - - STOP BREAKOUT - - - - -
 //todo - - - - STOP BREAKOUT - - - - - - - - - STOP BREAKOUT - - - - -
 //todo - - - - STOP BREAKOUT - - - - - - - - - STOP BREAKOUT - - - - -
+
+//// -----------------------------------------------
+//// -----------------------------------------------
+
+//? - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//? - - - - - -    Prototypes + Constructor Functions!   - - - - - - - - - -
+//? - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+//* Constructor function constructs other objects - thats its whole purpose in life!
+//* Capitalized function name - you will want to use a capital with the new keyword
+//* missing a return statement (not always)
+
+function Pet(attributes) {
+  this.name = attributes.name;
+  this.species = attributes.species;
+  this.pronoun = attributes.pronoun;
+  this.favFood = attributes.favFood;
+  this.sound = attributes.sound;
+}
+
+Pet.prototype.eat = function () {
+  console.log(
+    `${this.name} is a ${this.species} and ${this.pronoun} favourite food is ${this.favFood}`
+  );
+};
+Pet.prototype.speak = function () {
+  console.log(`${this.name} says ${this.sound}`);
+};
+
+const petOne = new Pet({
+  name: "Ada",
+  species: "Bali dog",
+  pronoun: "her",
+  favFood: "Salmon",
+  sound: "woof woof",
+});
+
+const petTwo = new Pet({
+  name: "Sydney",
+  species: "cat",
+  pronoun: "her",
+  favFood: "tuna",
+  sound: "meow",
+});
+
+const petThree = new Pet({
+  name: "Kiwi",
+  species: "parrot",
+  pronoun: "his",
+  favFood: "corn",
+  sound: "skwak",
+});
+
+const petFour = new Pet({
+  name: "Matias",
+  species: "tarantula",
+  pronoun: "his",
+  favFood: "ramen",
+  sound: "hisss",
+});
+
+const petFive = new Pet({
+  name: "Suzi",
+  species: "dog",
+  pronoun: "her",
+  favFood: "steak",
+  sound: "bark bark",
+});
+
+petOne.eat(); //! Ada is a Bali dog and her favourite food is Salmon
+petTwo.eat(); //! Sydney is a cat and her favourite food is tuna
+petThree.eat(); //! Kiwi is a parrot and his favourite food is corn
+petFour.eat(); //! Matias is a tarantula and his favourite food is ramen
+petFive.eat(); //! Suzi is a dog and her favourite food is steak
+
+petOne.speak();
+petTwo.speak();
+petThree.speak();
+petFour.speak();
+petFive.speak();
+
+//todo - - - - BREAKOUT - - - - - - - - - BREAKOUT - - - - -
+//todo - - - - BREAKOUT - - - - - - - - - BREAKOUT - - - - -
+//todo - - - - BREAKOUT - - - - - - - - - BREAKOUT - - - - -
+
+//* look at last atribute added above
+
+//todo - - - - STOP BREAKOUT - - - - - - - - - STOP BREAKOUT - - - - -
+//todo - - - - STOP BREAKOUT - - - - - - - - - STOP BREAKOUT - - - - -
+//todo - - - - STOP BREAKOUT - - - - - - - - - STOP BREAKOUT - - - - -
+
+//// -----------------------------------------------
+//// -----------------------------------------------
+
+//? - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//? - - - - - -    Evening Project Review || Task 1     - - - - - - - - - -
+//? - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/*
+  TASK 1
+    - Write a Person Constructor that initializes `name` and `age` from arguments.
+    - All instances of Person should initialize with an empty `stomach` array.
+    - Give instances of Person the ability to `.eat("someFood")`:
+        + When eating an edible, it should be pushed into the `stomach`.
+        + The `eat` method should have no effect if there are 10 items in the `stomach`.
+    - Give instances of Person the ability to `.poop()`:
+        + When an instance poops, its `stomach` should empty.
+    - Give instances of Person a method `.toString()`:
+        + It should return a string with `name` and `age`. Example: "Mary, 50"
+*/
+
+// create a constructor function for Person
+// it takes 3 properties: name, age, stomach- which is an empty array
+
+function Person(attributes) {
+  this.name = attributes.name;
+  this.age = attributes.age;
+  this.stomach = [];
+}
+
+//* create an eat function that gives the person the ability to eat some food - it has  //* a parameter of something that we can pass food into as an arg
+//* if the stomach length is < 10 the person can eat
+//* we want to push arg to the new array
+//* - - - - - - - - - - - - - - - - - - - - - -
+
+Person.prototype.eat = function (edible) {
+  if (this.stomach.length < 10) {
+    this.stomach.push(edible);
+  }
+};
+//* create a poop method - the poop method empties the stomach
+//* - - - - - - - - - - - - - - - - - - - - - -
+Person.prototype.poop = function () {
+  this.stomach = [];
+};
+
+//* method called toString - needs to return a string with name and age
+//* - - - - - - - - - - - - - - - - - - - - - -
+Person.prototype.toString = function () {
+  return `${this.name}, ${this.age}`;
+};
+
+personOne = new Person({
+  name: "Joey",
+  age: 39,
+});
+
+// not hoisted
+
+console.log(personOne.toString());
+personOne.eat("ramen");
+personOne.eat("pizza");
+personOne.eat("tacos");
+console.log(personOne.stomach);
+personOne.poop();
+console.log(personOne.stomach);
